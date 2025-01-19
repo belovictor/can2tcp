@@ -61,7 +61,10 @@ class SocketCANGateway:
 
     def send(self, msg):
         if msg is not None:
-            self.bus.send(msg)
+            try:
+                self.bus.send(msg)
+            except:
+                pass
 
 class TCPCanGateway:
     def __init__(self, host=None, port=None, reconnect_interval=2, receive_callback=None):
